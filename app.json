@@ -1,0 +1,12 @@
+{
+  "name": "RNQuizApp",
+  "displayName": "RNQuizApp",
+  "expo": {
+    "name": "RNQuizApp",
+    "slug": "RNQuizApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
