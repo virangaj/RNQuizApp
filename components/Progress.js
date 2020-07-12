@@ -13,17 +13,19 @@ function Progress(props) {
 const styles = StyleSheet.create({
   quizBox: {
     borderRadius: 10,
-    backgroundColor: Colors.gold,
+    borderColor: Colors.gold,
+    borderWidth: 2,
     margin: 5,
     marginTop: 20,
     width: "80%",
-    elevation: 5,
+
     paddingVertical: 15,
   },
   text: {
     textAlign: "center",
     fontSize: 18,
-    color: "white",
+    color: Colors.gold,
+    fontWeight: "bold",
   },
 });
 export default Progress;

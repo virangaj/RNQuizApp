@@ -20,33 +20,32 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.button}>
-        <Button color={Colors.bottomBar} title="Back" onPress={start} />
-      </View>
+      {/* <View style={styles.button}>
+        <Button color={Colors.bottomBar} title="Home" onPress={start} />
+      </View> */}
       <View style={styles.headerView}>
         <Text style={styles.heading}>QUIZBUZZER</Text>
       </View>
-      <View style={styles.imgView}>
+      {/* <View style={styles.imgView}>
         <Image source={image} style={styles.img} />
-      </View>
+      </View> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    height: 95,
+    height: 75,
 
     backgroundColor: Colors.pink,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
   headerView: {
-    flex: 4,
+    flex: 3,
   },
   heading: {
     fontSize: 25,

@@ -24,9 +24,6 @@ export default function FirstScreen() {
       <View style={styles.img}>
         <Image source={image} />
       </View>
-      <View style={styles.button}>
-        <Button color={Colors.pink} title="Start" onPress={start} />
-      </View>
     </SafeAreaView>
   );
 }
@@ -34,7 +31,7 @@ export default function FirstScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+
     alignItems: "center",
     justifyContent: "center",
   },
@@ -49,9 +46,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
 
     maxWidth: "50%",
-  },
-  button: {
-    marginTop: 10,
-    width: "50%",
   },
 });

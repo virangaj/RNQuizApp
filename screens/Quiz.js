@@ -58,10 +58,6 @@ export default function Quiz() {
     setCurrentAnswer(0);
   };
 
-  const handleClick = () => {
-    Alert.alert("Clicked");
-  };
-
   // if (currentQuestion + 1 > qdata.length) {
   //   return <EndScreen marks={marks} />;
   // }
@@ -73,7 +69,7 @@ export default function Quiz() {
           <EndScreen marks={marks} reset={reset} />
         </View>
       ) : (
-        <View style={styles.container}>
+        <View>
           {
             <View>
               <Header />
@@ -94,7 +90,8 @@ export default function Quiz() {
                   initial={0}
                   buttonColor={Colors.bottomBar}
                   selectedButtonColor={Colors.green}
-                  buttonSize={20}
+                  buttonSize={18}
+                  animation={true}
                   onPress={(value) => {
                     setCurrentAnswer(value);
                   }}
@@ -120,6 +117,7 @@ const styles = StyleSheet.create({
   quizBox: {
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
   },
   buttonArea: {
     marginTop: 10,
