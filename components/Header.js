@@ -24,7 +24,7 @@ export default function Header() {
         <Button color={Colors.bottomBar} title="Back" onPress={start} />
       </View>
       <View style={styles.headerView}>
-        <Text style={styles.heading}>QuizBox</Text>
+        <Text style={styles.heading}>QUIZBUZZER</Text>
       </View>
       <View style={styles.imgView}>
         <Image source={image} style={styles.img} />

@@ -7,7 +7,7 @@ export const questionData = [
     b: "Adjective",
     c: "Noun",
     d: "Conjunction",
-    answer: "b",
+    answer: 2,
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const questionData = [
     b: "Preposition",
     c: "Noun",
     d: "Pronoun",
-    answer: "d",
+    answer: 4,
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const questionData = [
     b: "Preposition",
     c: "Pronoun",
     d: "Conjunction",
-    answer: "b",
+    answer: 2,
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ export const questionData = [
     b: "Preposition",
     c: "Verb",
     d: "Pronoun",
-    answer: "a",
+    answer: 1,
   },
   {
     id: 5,
@@ -46,6 +46,6 @@ export const questionData = [
     b: "Preposition",
     c: "Verb",
     d: "Pronoun",
-    answer: "c",
+    answer: 3,
   },
 ];

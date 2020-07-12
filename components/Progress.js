@@ -1,29 +1,29 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Colors from "../constant/Colors";
-function Questions(props) {
+function Progress(props) {
   return (
     <View style={styles.quizBox}>
-      <Text style={styles.text}>{props.question}</Text>
+      <Text style={styles.text}>
+        QUESTION {props.current} OF {props.total}
+      </Text>
     </View>
   );
 }
-export default Questions;
-
 const styles = StyleSheet.create({
   quizBox: {
     borderRadius: 10,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.gold,
     margin: 5,
-
-    width: "95%",
-    padding: 5,
+    marginTop: 20,
+    width: "80%",
     elevation: 5,
     paddingVertical: 15,
-    marginVertical: 20,
   },
   text: {
+    textAlign: "center",
     fontSize: 18,
     color: "white",
   },
 });
+export default Progress;

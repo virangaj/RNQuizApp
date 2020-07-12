@@ -20,7 +20,7 @@ export default function FirstScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <Text style={styles.heading}>QuizBox</Text>
+      <Text style={styles.heading}>QUIZBUZZER</Text>
       <View style={styles.img}>
         <Image source={image} />
       </View>
