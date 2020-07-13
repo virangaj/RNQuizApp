@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button, Image, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  Alert,
+  Vibration,
+} from "react-native";
 import RadioForm, {
   RadioButton,
   RadioButtonInput,
@@ -44,7 +52,7 @@ export default function Quiz() {
     }
     console.log("Marks", marks);
     console.log("current Ans", currentAnswer);
-
+    Vibration.vibrate(50);
     if (currentQuestion + 1 < qdata.length) {
       setCurrentQuestion(currentQuestion + 1);
       return;
@@ -63,6 +71,7 @@ export default function Quiz() {
     setMarks(0);
     setCurrentAnswer(0);
     setShowResult(false);
+    Vibration.vibrate(100);
   };
 
   // if (currentQuestion + 1 > qdata.length) {
