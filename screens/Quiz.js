@@ -22,7 +22,7 @@ export default function Quiz() {
   }, []);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState();
-
+  const [showResult, setShowResult] = useState(false);
   const [marks, setMarks] = useState(0);
   const questionArray = {
     question: qdata.map((q) => q.q),
@@ -42,20 +42,27 @@ export default function Quiz() {
     if (currentAnswer === questionArray.correct_answer[currentQuestion]) {
       setMarks((marks) => marks + 1);
     }
-    console.log("Before answer", currentAnswer);
-    console.log("marks", marks);
+    console.log("Marks", marks);
+    console.log("current Ans", currentAnswer);
 
     if (currentQuestion + 1 < qdata.length) {
       setCurrentQuestion(currentQuestion + 1);
       return;
     }
+    if (currentQuestion + 1 === qdata.length) {
+      setShowResult(true);
+      return;
+    }
   };
-
+  // useEffect(() => {
+  //   setMarks();
+  // }, []);
   //reset buttom
   const reset = () => {
     setCurrentQuestion(0);
     setMarks(0);
     setCurrentAnswer(0);
+    setShowResult(false);
   };
 
   // if (currentQuestion + 1 > qdata.length) {
@@ -63,7 +70,7 @@ export default function Quiz() {
   // }
   return (
     <View>
-      {currentQuestion + 1 === qdata.length ? (
+      {showResult === true ? (
         <View style={styles.quizBox}>
           <Header />
           <EndScreen marks={marks} reset={reset} />
@@ -96,6 +103,7 @@ export default function Quiz() {
                     setCurrentAnswer(value);
                   }}
                 />
+
                 <View style={styles.buttonArea}>
                   <View style={styles.btn}>
                     <Button title="Reset" color={Colors.pink} onPress={reset} />

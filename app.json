@@ -7,6 +7,8 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "This is a basic quiz app created using React Native",
+    "githubUrl": "https://github.com/Viranga-pasi/RNQuizApp"
   }
 }
