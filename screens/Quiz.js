@@ -55,8 +55,8 @@ export default function Quiz(props) {
     console.log("current Ans", currentAnswer);
     if (currentAnswer === 0) {
       Alert.alert("Input Undetected", "Please select an Answer", [
-        { text: "Ok", style: "destructive" },
         { text: "Reset", style: "destructive", onPress: reset },
+        { text: "Ok", style: "destructive" },
       ]);
     } else {
       if (currentQuestion + 1 < qdata.length) {
