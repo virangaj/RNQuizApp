@@ -8,6 +8,8 @@ import {
   Image,
   Alert,
   Vibration,
+  Modal,
+  TouchableOpacity,
 } from "react-native";
 import RadioForm, {
   RadioButton,
@@ -20,9 +22,10 @@ import Header from "../components/Header";
 import Questions from "../components/Questions";
 import EndScreen from "../screens/EndScreen";
 import Progress from "../components/Progress";
+
 import * as consts from "../constant/Data";
 
-export default function Quiz() {
+export default function Quiz(props) {
   const [qdata, setQdata] = useState([]);
 
   useEffect(() => {
@@ -78,9 +81,10 @@ export default function Quiz() {
   //   return <EndScreen marks={marks} />;
   // }
   return (
-    <View>
+    <Modal visible={props.visible} animationType="slide">
       {showResult === true ? (
         <View style={styles.quizBox}>
+          <StatusBar style="auto" />
           <Header />
           <EndScreen marks={marks} reset={reset} />
         </View>
@@ -88,6 +92,7 @@ export default function Quiz() {
         <View>
           {
             <View>
+              <StatusBar style="auto" />
               <Header />
               <View style={styles.quizBox}>
                 <Progress
@@ -112,21 +117,38 @@ export default function Quiz() {
                     setCurrentAnswer(value);
                   }}
                 />
+                {/* <Answers
+                  answer={questionArray}
+                  currentQuestion={currentQuestion}
+                /> */}
 
                 <View style={styles.buttonArea}>
-                  <View style={styles.btn}>
+                  {/* <View style={styles.btn}>
                     <Button title="Reset" color={Colors.pink} onPress={reset} />
                   </View>
                   <View style={styles.btn}>
                     <Button title="Next" onPress={next} />
-                  </View>
+                  </View> */}
+
+                  <TouchableOpacity
+                    style={{ ...styles.btn, backgroundColor: Colors.pink }}
+                    onPress={reset}
+                  >
+                    <Text style={styles.footer}>RESET</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{ ...styles.btn, backgroundColor: Colors.bottomBar }}
+                    onPress={next}
+                  >
+                    <Text style={styles.footer}>NEXT</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
           }
         </View>
       )}
-    </View>
+    </Modal>
   );
 }
 
@@ -142,8 +164,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
   },
+  // btn: {
+  //   paddingHorizontal: 10,
+  //   width: "30%",
+  // },
+  footer: {
+    color: "white",
+
+    fontSize: 16,
+  },
   btn: {
-    paddingHorizontal: 10,
     width: "30%",
+
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5,
+    marginVertical: 10,
+    paddingVertical: 10,
+    borderRadius: 50,
+    marginHorizontal: 20,
   },
 });

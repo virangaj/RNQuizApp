@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, TouchableOpacity } from "react-native";
 import Colors from "../constant/Colors";
 function EndScreen(props) {
   return (
@@ -11,7 +11,10 @@ function EndScreen(props) {
         <Text style={styles.marks}>Your Result</Text>
         <Text style={styles.marks}>{props.marks}</Text>
       </View>
-      <Button title="Try Again" onPress={props.reset} />
+      {/* <Button title="Try Again" onPress={props.reset} /> */}
+      <TouchableOpacity style={styles.btn} onPress={props.reset}>
+        <Text style={styles.footer}>Try Again</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -55,5 +58,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.bottomBar,
     fontWeight: "bold",
+  },
+  footer: {
+    color: "white",
+
+    fontSize: 16,
+  },
+  btn: {
+    width: "50%",
+    backgroundColor: Colors.bottomBar,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5,
+    marginVertical: 10,
+    paddingVertical: 10,
+    borderRadius: 50,
   },
 });

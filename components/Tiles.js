@@ -10,24 +10,23 @@ import {
   Alert,
   TouchableHighlight,
   TouchableNativeFeedback,
+  TouchableOpacity,
 } from "react-native";
 import Colors from "../constant/Colors";
 
 export default function Tiles(props) {
   return (
-    <TouchableNativeFeedback>
-      <View
-        style={{
-          ...styles.tileView,
-          ...props.tile,
-          backgroundColor: props.color,
-        }}
-      >
-        {props.children}
+    <TouchableOpacity
+      style={{
+        ...styles.tileView,
+        ...props.tile,
+        backgroundColor: props.color,
+      }}
+    >
+      {props.children}
 
-        <Text style={{ ...styles.text, ...props.text }}>{props.title}</Text>
-      </View>
-    </TouchableNativeFeedback>
+      <Text style={{ ...styles.text, ...props.text }}>{props.title}</Text>
+    </TouchableOpacity>
   );
 }
 
