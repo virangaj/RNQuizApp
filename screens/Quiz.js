@@ -50,19 +50,30 @@ export default function Quiz(props) {
 
   //next buttom
   const next = () => {
-    if (currentAnswer === questionArray.correct_answer[currentQuestion]) {
-      setMarks((marks) => marks + 1);
-    }
+    Vibration.vibrate(50);
     console.log("Marks", marks);
     console.log("current Ans", currentAnswer);
-    Vibration.vibrate(50);
-    if (currentQuestion + 1 < qdata.length) {
-      setCurrentQuestion(currentQuestion + 1);
-      return;
-    }
-    if (currentQuestion + 1 === qdata.length) {
-      setShowResult(true);
-      return;
+    if (currentAnswer === 0) {
+      Alert.alert("Input Undetected", "Please select an Answer", [
+        { text: "Ok", style: "destructive" },
+        { text: "Reset", style: "destructive", onPress: reset },
+      ]);
+    } else {
+      if (currentQuestion + 1 < qdata.length) {
+        setCurrentQuestion(currentQuestion + 1);
+        setCurrentAnswer(0);
+        return;
+      }
+
+      if (currentQuestion + 1 === qdata.length) {
+        setShowResult(true);
+        setCurrentAnswer(0);
+        return;
+      }
+      if (currentAnswer === questionArray.correct_answer[currentQuestion]) {
+        setMarks((marks) => marks + 1);
+        setCurrentAnswer(0);
+      }
     }
   };
   // useEffect(() => {
