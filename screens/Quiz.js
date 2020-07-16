@@ -46,8 +46,6 @@ export default function Quiz(props) {
   };
   const question = questionArray.question[currentQuestion];
 
-  // console.log("question", question);
-
   //next buttom
   const next = () => {
     Vibration.vibrate(50);
@@ -76,10 +74,7 @@ export default function Quiz(props) {
       }
     }
   };
-  // useEffect(() => {
-  //   setMarks();
-  // }, []);
-  //reset buttom
+
   const reset = () => {
     setCurrentQuestion(0);
     setMarks(0);
@@ -88,9 +83,6 @@ export default function Quiz(props) {
     Vibration.vibrate(100);
   };
 
-  // if (currentQuestion + 1 > qdata.length) {
-  //   return <EndScreen marks={marks} />;
-  // }
   return (
     <Modal visible={props.visible} animationType="slide">
       {showResult === true ? (
@@ -128,19 +120,8 @@ export default function Quiz(props) {
                     setCurrentAnswer(value);
                   }}
                 />
-                {/* <Answers
-                  answer={questionArray}
-                  currentQuestion={currentQuestion}
-                /> */}
 
                 <View style={styles.buttonArea}>
-                  {/* <View style={styles.btn}>
-                    <Button title="Reset" color={Colors.pink} onPress={reset} />
-                  </View>
-                  <View style={styles.btn}>
-                    <Button title="Next" onPress={next} />
-                  </View> */}
-
                   <TouchableOpacity
                     style={{ ...styles.btn, backgroundColor: Colors.pink }}
                     onPress={reset}
@@ -175,10 +156,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
   },
-  // btn: {
-  //   paddingHorizontal: 10,
-  //   width: "30%",
-  // },
+
   footer: {
     color: "white",
 
