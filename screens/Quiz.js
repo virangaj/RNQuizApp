@@ -32,7 +32,7 @@ export default function Quiz(props) {
     setQdata(consts.questionData);
   }, []);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState();
+  const [currentAnswer, setCurrentAnswer] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [marks, setMarks] = useState(0);
   const questionArray = {
