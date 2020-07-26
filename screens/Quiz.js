@@ -11,12 +11,14 @@ import {
   Modal,
   TouchableOpacity,
 } from "react-native";
+
 import RadioForm, {
   RadioButton,
   RadioButtonInput,
   RadioButtonLabel,
 } from "react-native-simple-radio-button";
-
+import firebase from "../firebase";
+import "firebase/firestore";
 import Colors from "../constant/Colors";
 import Header from "../components/Header";
 import Questions from "../components/Questions";
@@ -27,7 +29,7 @@ import * as consts from "../constant/Data";
 
 export default function Quiz(props) {
   const [qdata, setQdata] = useState([]);
-
+  const [QuizData, setQuizData] = useState([]);
   useEffect(() => {
     setQdata(consts.questionData);
   }, []);
@@ -35,28 +37,54 @@ export default function Quiz(props) {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [marks, setMarks] = useState(0);
+  // const questionArray = {
+  //   question: qdata.map((q) => q.q),
+  //   a: qdata.map((q) => q.a),
+  //   b: qdata.map((q) => q.b),
+  //   c: qdata.map((q) => q.c),
+  //   d: qdata.map((q) => q.d),
+  //   id: qdata.map((q) => q.id),
+  //   correct_answer: qdata.map((q) => q.answer),
+  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      const db = firebase.firestore();
+      const dataQ = await db.collection("questions_db").get();
+      setQuizData(dataQ.docs.map((doc) => doc.data()));
+    };
+    fetchData();
+  }, []);
+
   const questionArray = {
-    question: qdata.map((q) => q.q),
-    a: qdata.map((q) => q.a),
-    b: qdata.map((q) => q.b),
-    c: qdata.map((q) => q.c),
-    d: qdata.map((q) => q.d),
-    id: qdata.map((q) => q.id),
-    correct_answer: qdata.map((q) => q.answer),
+    question: QuizData.map((q) => q.quiz),
+    a: QuizData.map((q) => q.answer_a),
+    b: QuizData.map((q) => q.answer_b),
+    c: QuizData.map((q) => q.answer_c),
+    d: QuizData.map((q) => q.answer_d),
+    id: QuizData.map((q) => q.id),
+    correct_answer: QuizData.map((q) => q.correct_num),
   };
   const question = questionArray.question[currentQuestion];
+
+  console.log("question", questionArray);
 
   //next buttom
   const next = () => {
     Vibration.vibrate(50);
-    console.log("Marks", marks);
-    console.log("current Ans", currentAnswer);
+
     if (currentAnswer === 0) {
       Alert.alert("Input Undetected", "Please select an Answer", [
         { text: "Reset", style: "destructive", onPress: reset },
         { text: "Ok", style: "destructive" },
       ]);
     } else {
+      if (currentAnswer === questionArray.correct_answer[currentQuestion]) {
+        setMarks(marks + 1);
+        setCurrentAnswer(0);
+      }
+      console.log("curent answer", currentAnswer);
+      console.log("Marks", marks);
+      console.log("correct Ans", questionArray.correct_answer[currentQuestion]);
       if (currentQuestion + 1 < qdata.length) {
         setCurrentQuestion(currentQuestion + 1);
         setCurrentAnswer(0);
@@ -67,10 +95,6 @@ export default function Quiz(props) {
         setShowResult(true);
         setCurrentAnswer(0);
         return;
-      }
-      if (currentAnswer === questionArray.correct_answer[currentQuestion]) {
-        setMarks((marks) => marks + 1);
-        setCurrentAnswer(0);
       }
     }
   };
@@ -156,7 +180,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
   },
-
+  btn: {
+    paddingHorizontal: 10,
+    width: "30%",
+  },
   footer: {
     color: "white",
 

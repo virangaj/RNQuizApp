@@ -6,4 +6,5 @@ export default {
   bottomBar: "#00a6ff",
   green: "#28b41a",
   bluMix: "#0094ac",
+  grey: "#8f9090",
 };

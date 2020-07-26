@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import FirstScreen from "./screens/FirstScreen";
 import QuizMenu from "./screens/QuizMenu";
@@ -9,47 +9,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "./constant/Colors";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native-gesture-handler";
-// const Welcome = ({ navigation }) => {
-//   return (
-//     <View style={styles.container}>
-//       <FirstScreen />
-//       <View style={styles.button}>
-//         <Button
-//           color={Colors.pink}
-//           title="Start"
-//           onPress={() => navigation.navigate("Quiz")}
-//         />
-//       </View>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// };
-// const QuizOpen = () => {
-//   return (
-//     <View style={styles.container}>
-//       {/* <QuizMenu /> */}
-//       <Quiz />
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// };
-// const Stack = createStackNavigator();
+
 export default function App() {
   const [isAddMode, setIsAddMode] = useState(false);
+
+  // console.log("questions", qdata);
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator>
-    //     <Stack.Screen name="Home" component={Welcome} />
-    //     <Stack.Screen name="Quiz" component={QuizOpen} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <FirstScreen />
       <Quiz visible={isAddMode} />
       <TouchableOpacity style={styles.btn} onPress={() => setIsAddMode(true)}>
         <Text style={styles.footer}>
-          {"              "}START {"              "}
+          {"              "}START{"              "}
         </Text>
       </TouchableOpacity>
     </SafeAreaView>

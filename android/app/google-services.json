@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "103596531145",
+    "firebase_url": "https://react-login-quiz-test.firebaseio.com",
+    "project_id": "react-login-quiz-test",
+    "storage_bucket": "react-login-quiz-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103596531145:android:61c265ffa539735dd51c18",
+        "android_client_info": {
+          "package_name": "com.rnquizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103596531145-0lmoj265o298sciiro5f4o1ovrn77fer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7YP6V8cW3JWSEnrKRCt1uWjlwIdXt9Bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103596531145-0lmoj265o298sciiro5f4o1ovrn77fer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
