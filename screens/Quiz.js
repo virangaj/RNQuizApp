@@ -122,10 +122,7 @@ export default function Quiz(props) {
               <StatusBar style="auto" />
               <Header />
               <View style={styles.quizBox}>
-                <Progress
-                  current={questionArray.id[currentQuestion]}
-                  total={qdata.length}
-                />
+                <Progress current={currentQuestion + 1} total={qdata.length} />
                 <Questions question={question} />
 
                 <RadioForm
